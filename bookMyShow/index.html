@@ -64,25 +64,48 @@
             e.preventDefault();
             cal();
         });
+
         let phone = document.getElementById("phone");
-        phone.addEventListener("keyup", ()=>{
-            if(isNaN(phone.value)){
-                phone.style.border="1px solid red";
-            }else if(phone.value == ""){
-                phone.style.border="1px solid red";
-            }else{
-                phone.style.border="1px solid green";
+        phone.addEventListener("keyup", () => {
+            if (isNaN(phone.value)) {
+                phone.style.border = "3px solid red";
+            } else if (phone.value == "") {
+                phone.style.border = "3px solid red";
+            } else {
+                phone.style.border = "3px solid green";
+            }
+        });
+
+        let adults = document.getElementById("adults");
+        adults.addEventListener("keyup", () => {
+            if (adults.value > 10) {
+                adults.style.border = "3px solid red";
+            } else if (adults.value == "") {
+                adults.style.border = "3px solid red";
+            } else {
+                adults.style.border = "3px solid green";
+            }
+        });
+
+        let child = document.getElementById("child");
+        child.addEventListener("keyup", () => {
+            if (child.value > 10) {
+                child.style.border = "3px solid red";
+            } else if (child.value == "") {
+                child.style.border = "3px solid red";
+            } else {
+                child.style.border = "3px solid green";
             }
         });
 
 
         function cal() {
             let circle = document.getElementById("circle").value;
-            let adults = document.getElementById("adults").value;
-            let child = document.getElementById("child").value;
+            let a = adults.value;
+            let c = child.value;
 
             // if()
-            let total = (circle * adults) + (circle / 2 * child);
+            let total = (circle * a) + (circle / 2 * c);
 
             para.innerText = "Your approximate ticket amount is " + total + " INR";
         }
